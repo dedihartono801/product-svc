@@ -18,10 +18,11 @@
 ## Installation
 
 ```bash
+#clone all repo services
 #create folder "ssl" in each services (auth-svc,order-svc,product-svc) 
 #go to your ssl repo and generate ssl with command below:
 $ ./run.sh
-#and then ssl generated, copy all folders ssl (auth-svc,order-svc,product-svc) and paste to ssl folder that you have made
+#and then ssl generated, copy all folders (auth-svc,order-svc,product-svc) in ssl repo to "ssl folder" that you have made before
 ```
 
 ## Running the app
@@ -35,6 +36,57 @@ $ make server
 ```bash
 #go to your protobuf repo and run command below:
 $ ./generator.sh
+```
+
+## API
+
+```bash
+#register
+curl --location --request POST 'http://localhost:3000/auth/register' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "email": "dapur-ngebul@pt.com",
+    "password": "12345678"
+}'
+```
+
+```bash
+#login
+curl --location --request POST 'http://localhost:3000/auth/login' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "email": "dapur-ngebul@pt.com",
+    "password": "12345678"
+}'
+```
+
+```bash
+#add product
+curl --location --request POST 'http://localhost:3000/product' \
+--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDM5MTk3MTgsImlzcyI6ImdvLWdycGMtYXV0aC1zdmMiLCJJZCI6MSwiRW1haWwiOiJkYXB1ci1uZ2VidWxAcHQuY29tIn0.wY_1gRNJV0U7_nP23-dxazRwXCPl1Ad2Who4xXfTj3I' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "name": "Product A",
+    "stock": 20,
+    "price": 15000
+}'
+```
+
+```bash
+#find product
+curl --location --request GET 'http://localhost:3000/product/1' \
+--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDM5MTk3MTgsImlzcyI6ImdvLWdycGMtYXV0aC1zdmMiLCJJZCI6MSwiRW1haWwiOiJkYXB1ci1uZ2VidWxAcHQuY29tIn0.wY_1gRNJV0U7_nP23-dxazRwXCPl1Ad2Who4xXfTj3I'
+```
+
+```bash
+#create order
+curl --location --request POST 'http://localhost:3000/order' \
+--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDM5MTk3MTgsImlzcyI6ImdvLWdycGMtYXV0aC1zdmMiLCJJZCI6MSwiRW1haWwiOiJkYXB1ci1uZ2VidWxAcHQuY29tIn0.wY_1gRNJV0U7_nP23-dxazRwXCPl1Ad2Who4xXfTj3I' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+ "productId": 15,
+ "quantity": 11
+}'
 ```
 
 
