@@ -1,6 +1,6 @@
 
 ## Diagram
-
+![alt text](https://github.com/dedihartono801/product-svc/blob/master/diagram.png)
 
 ## Description
 
