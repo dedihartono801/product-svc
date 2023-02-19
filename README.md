@@ -1,19 +1,23 @@
 ## Description
 
-This repository is part of my article on Medium:  
-[Microservices with Go, gRPC, API Gateway, and Authentication | by Kevin Vogel](https://levelup.gitconnected.com/microservices-with-go-grpc-api-gateway-and-authentication-part-1-2-393ad9fc9d30)
+[Microservices with Go, gRPC and TLS server side, API Gateway, and Authentication]
 
 ## Repositories
 
-- https://github.com/hellokvn/go-grpc-product-svc - Product SVC (gRPC)
-- https://github.com/hellokvn/go-grpc-order-svc - Order SVC (gRPC)
-- https://github.com/hellokvn/go-grpc-auth-svc - Authentication SVC (gRPC)
-- https://github.com/hellokvn/go-grpc-api-gateway - API Gateway (HTTP)
+- https://github.com/dedihartono801/product-svc - Product SVC (gRPC)
+- https://github.com/dedihartono801/order-svc - Order SVC (gRPC)
+- https://github.com/dedihartono801/auth-svc - Authentication SVC (gRPC)
+- https://github.com/dedihartono801/api-gateway - API Gateway (HTTP)
+- https://github.com/dedihartono801/protobuf - Proto file
+- https://github.com/dedihartono801/ssl - For generate your ssl each service
 
 ## Installation
 
 ```bash
-$ make proto
+#create folder "ssl" in each services (auth-svc,order-svc,product-svc) 
+#go to your ssl repo and generate ssl with command below:
+$ ./run.sh
+#and then ssl generated, copy all folders ssl (auth-svc,order-svc,product-svc) and paste to ssl folder that you have made
 ```
 
 ## Running the app
@@ -22,6 +26,12 @@ $ make proto
 $ make server
 ```
 
-## Author
+## Generate protobuf
 
-- [Kevin Vogel](https://medium.com/@hellokevinvogel)
+```bash
+#go to your protobuf repo and run command below:
+$ ./generator.sh
+```
+
+
+
